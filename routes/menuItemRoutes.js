@@ -30,21 +30,21 @@ router.get("/", async (req, res) => {
 
     }
 })
-// router.get("/:tasteType", async (req, res) => {
-//     try {
+router.get("/:tasteType", async (req, res) => {
+    try {
 
-//         const tasteType = req.params.tasteType;
-//         if (tasteType == "sweet" || tasteType == "spicy" || tasteType == "sure") {
-//             const response = await MenuItem.find({ tasteType: tasteType })
-//             console.log("Response fetched ")
-//             res.status(200).json(response)
-//         } else {
-//             res.status(404).json("Invalide taste type")
-//         }
-//     } catch (error) {
-//         console.log(error)
-//         res.status(500).json({ error: "Internal server error" })
-//     }
-// })
+        const tasteType = req.params.tasteType;
+        if (tasteType == "sweet" || tasteType == "spicy" || tasteType == "sure") {
+            const response = await MenuItem.find({ tasteType: tasteType })
+            console.log("Response fetched ")
+            res.status(200).json(response)
+        } else {
+            res.status(404).json("Invalide taste type")
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ error: "Internal server error" })
+    }
+})
 
 module.exports = router
